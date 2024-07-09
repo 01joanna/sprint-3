@@ -42,13 +42,18 @@ function orderAlphabetically(array) {
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  let first20 = array.map((movie) => movie.year).slice(0, 20)
-  let sortedYears = first20.sort()
 
+  let years = array.map((movie) => movie)
+  let sorted = years.sort((a, b) => {
+    if (a.year !== b.year) {
+      return a.year - b.year
+    } else {
+      return a.title.localeCompare(b.title);
+    }
+  })
 
-  console.log("EXERCICE 5", sortedYears)
-
-  return sortedYears
+  console.log("EXERCICE 5", sorted)
+  return sorted
 }
 
 // Exercise 6: Calculate the average of the movies in a category
