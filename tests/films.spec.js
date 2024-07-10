@@ -293,9 +293,18 @@ describe('Function "orderByYear"', () => {
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
   });
+
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Action')).toBe('number')
+  })
+
+  it('should return an average of a list of movies by category', () => {
+    expect(moviesAverageByCategory(movies, 'Action')).toBeCloseTo(8.35);
+    expect(moviesAverageByCategory(movies, 'Drama')).toBeCloseTo(8.3172)
+  })
 });
 
 // Exercise 7
