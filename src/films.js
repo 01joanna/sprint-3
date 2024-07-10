@@ -95,7 +95,8 @@ function bestFilmOfYear(array) {
   
   let moviesByYear = array.filter((movie) => movie.year)
   let sum = moviesByYear.reduce((acc, movie) => {
-    return (acc.score < movie.score ? movie : acc)
+    let total = (acc.score < movie.score ? movie : acc)
+    return total
   })
 
   // console.log(sum)
