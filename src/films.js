@@ -62,24 +62,44 @@ function moviesAverageByCategory(array, category) {
     let categories = array.filter((movie) => movie.genre.includes(category))
     if (categories.length === 0) return 0;
 
-    console.log("categories", categories)
+    // console.log("categories", categories)
 
     let score = categories.map((movie) => movie.score)
     let sum = score.reduce((acc, number) => acc + number, 0)
     let total = sum / categories.length
-    console.log(total)
+    // console.log(total)
     return total;
 
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
 
+return array.map((movie) => {
+    const [hours, minutes] = movie.duration.split("h ")
+    let time = parseInt(hours) * 60;
+
+    if (minutes) {
+      time += parseInt(minutes)
+    }
+
+
+    return {
+      ...movie, duration: time
+    }
+  })
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(array) {
   
+  let moviesByYear = array.filter((movie) => movie.year)
+  let sum = moviesByYear.reduce((acc, movie) => {
+    return (acc.score < movie.score ? movie : acc)
+  })
+
+  // console.log(sum)
+  return [sum]
 }
 
 
